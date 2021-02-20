@@ -25,6 +25,10 @@
             font-size: 18px;
         }
 
+        .search-input:focus, .button-search:focus {
+            outline: none;
+        }
+
         .button-search{
             width:40px;
             border-style: none;
