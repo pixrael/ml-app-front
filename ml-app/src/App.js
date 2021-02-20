@@ -1,10 +1,16 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import Searchbox from './searchBox/Searchbox';
+import Product from './product/product'
+import Breadcrum from './breadcrum/Breadcrum';
 
 function App() {
   return (
-    <Searchbox/>
+    <div>
+      <Searchbox />
+      <Breadcrum />
+      <Product />
+    </div>
   );
 }
 
