@@ -9,7 +9,7 @@ function App() {
     <div>
       <Searchbox />
       <Breadcrum />
-      <Product />
+      <Product imgUrl="https://k33.kn3.net/taringa/9/C/4/B/7/0/gallonegro60/D59.jpg" />
     </div>
   );
 }
