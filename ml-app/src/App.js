@@ -1,7 +1,7 @@
 import './mixings.scss';
 import './App.scss';
 import Searchbox from './components/searchBox/Searchbox';
-import ProductItem from './components/product/product-item/product-item'
+import ProductList from './components/product/product-list/product-list';
 import Breadcrum from './components/breadcrum/Breadcrum';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div>
       <Searchbox />
       <Breadcrum />
-      <ProductItem imgUrl="https://k33.kn3.net/taringa/9/C/4/B/7/0/gallonegro60/D59.jpg" />
+      <ProductList />
     </div>
   );
 }
