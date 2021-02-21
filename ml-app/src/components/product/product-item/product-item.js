@@ -1,8 +1,7 @@
-import './product.scss';
-import { MdLocalShipping } from "react-icons/md";
-import shippingIcon from '../assets/ic_shipping.png';
+import './product-item.scss';
+import shippingIcon from '../../../assets/ic_shipping.png';
 
-function Product(props) {
+function ProductItem(props) {
     return (
         <div className="row-product">
             <img className="img-product" src={props.imgUrl} />
@@ -34,4 +33,4 @@ function Product(props) {
     );
 }
 
-export default Product;
+export default ProductItem;

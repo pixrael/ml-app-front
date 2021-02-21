@@ -1,5 +1,5 @@
 import './Searchbox.scss';
-import logo from '../assets/logo.png';
+import logo from '../../assets/logo.png';
 import { BsSearch } from 'react-icons/bs';
 
 function Searchbox() {
