@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import './mixings.scss';
 import './App.scss';
 import Searchbox from './searchBox/Searchbox';
 import Product from './product/product'

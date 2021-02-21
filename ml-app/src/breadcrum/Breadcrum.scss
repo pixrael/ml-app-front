@@ -1,12 +1,14 @@
+@import '../mixings.scss';
+
 .container-breadcrum{
-    padding-top:16px;
-    padding-bottom:16px;
+    padding-top:$space;
+    padding-bottom:$space;
     width: 100%;
     display: flex;
     justify-content: center;
 
     .breadcrum{
         width: 80%;
-        color:#c7c7c7;
+        color:$gray-light;
     }
 }
