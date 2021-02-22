@@ -1,9 +1,19 @@
 @import '../../../mixings.scss';
 
-.row-product{
-    width: 80%;
-    justify-content: center;
+.product-container{
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+
+.row-product{
+    display: flex;
+    background-color: white;
+    padding-top: $space;
+    padding-bottom: $space;
+    padding-left: $space;    
 
     .img-product{
         width: 180px;
@@ -46,13 +56,38 @@
             font-size: $font-size-na;
             color:$gray-light;
             text-align: right;
-            padding-top: $space;
+            padding-top: $space-upper;
+            text-align: center;
         }
-
-
-
-
     }
+
+
+
+    
 
 }
 
+
+
+}
+
+.divider{
+    width: 100%;    
+    float: left;
+    
+     .inner{
+        margin-top: 0px;
+        border-bottom: 1px solid $gray-lighter;
+        width: 96%;
+        margin-right: auto;
+        margin-left: auto;   
+     }
+}
+
+
+.row{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
