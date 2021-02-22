@@ -1,13 +1,21 @@
 import ProductItem from '../product-item/product-item';
 import './product-list.scss';
 
-function ProductList() {
+function ProductList(props) {
 
-    const imgUrl = 'https://vignette2.wikia.nocookie.net/reinoanimalia/images/d/dd/Gavilan_colirrojo_7.png/revision/latest?cb=20151214221805&path-prefix=es';
+    const products = props.searchResults;
 
-    const ret = [1, 2].map((val, index) => {
+    const ret = products.map((product, index) => {
+
+        const imgUrl = product.thumbnail;
+        const price = product.price;
+        const title = product.title;
+        const stateName = product.address.state_name;
+        const freeShipping = product.shipping.free_shipping;
+
         return (
-            <ProductItem key={index.toString()} className="product-item" imgUrl={imgUrl} />
+            <ProductItem key={index.toString()} className="product-item" imgUrl={imgUrl} price={price} title={title} stateName={stateName}
+                freeShipping={freeShipping} />
         );
     });
 
@@ -15,9 +23,7 @@ function ProductList() {
     return (
         <div className="item-wrapper" >
             {ret}
-        </div>
-
-    );
+        </div>);
 
 }
 

@@ -3,8 +3,16 @@ import shippingIcon from '../../../assets/ic_shipping.png';
 
 function ProductItem(props) {
 
+    let shippingTag = '';
+
+    if (props.freeShipping) {
+        shippingTag = <div className="shipping-container" >
+            <img src={shippingIcon} />
+        </div>;
+    }
+
     return (
-        <div class="row">
+        <div className="row">
             <div className="product-container">
                 <div className="row-product">
                     <img className="img-product" src={props.imgUrl} />
@@ -12,22 +20,22 @@ function ProductItem(props) {
                         <div className="left-price-title" >
                             <div className="price-container">
                                 <div className="price" >
-                                    $ 1.980
-                        </div>
-                                <div className="shipping-container" >
-                                    <img src={shippingIcon} />
+                                    $ {props.price}
                                 </div>
+                                {
+                                    shippingTag
+                                }                                
                             </div>
                             <div className="title" >
-                                Gavilan como nuevo
-                    </div>
+                                {props.title}
+                            </div>
                             <div className="status" >
                                 Completo Único!
                     </div>
                         </div>
                         <div className="right-location" >
-                            Buenos Aires
-                </div>
+                            {props.stateName}
+                        </div>
 
                     </div>
                 </div>
@@ -42,44 +50,6 @@ function ProductItem(props) {
 
         </div>
     );
-
-
-    /* return (
-
-        <div className="product-container">
-            <div className="row-product">
-                <img className="img-product" src={props.imgUrl} />
-                <div className="product-info">
-                    <div className="left-price-title" >
-                        <div className="price-container">
-                            <div className="price" >
-                                $ 1.980
-                        </div>
-                            <div className="shipping-container" >
-                                <img src={shippingIcon} />
-                            </div>
-                        </div>
-                        <div className="title" >
-                            Gavilan como nuevo
-                    </div>
-                        <div className="status" >
-                            Completo Único!
-                    </div>
-                    </div>
-                    <div className="right-location" >
-                        Buenos Aires
-                </div>
-
-                </div>
-            </div>
-            <div className="divider">
-                <div className="inner"></div>
-            </div>
-        </div>
-
-
-
-    ); */
 }
 
 export default ProductItem;
