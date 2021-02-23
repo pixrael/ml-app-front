@@ -1,0 +1,76 @@
+@import '../../../mixings.scss';
+
+.root-det{
+    background-color: $gray-lighter;
+
+
+.container-det{
+    background-color: white;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    .upperSection{
+        display: flex;
+        flex-direction: row;
+
+        .img-container{
+            img{
+                width:680px;
+            }
+        }
+
+        .info{
+            flex:1;
+            .info-data{
+                
+                width:300px;
+                float:right;
+                padding-right: $space-upper;
+                padding-top: $space-upper;
+
+                .statusQty{
+                    font-size: $font-size-sm;
+                }
+    
+                .title{
+                    font-size: $font-size-mid-upper;
+                    margin-top: $space;
+                }
+    
+                .price{
+                    font-size: $font-size-big-upper;
+                    margin-top: $space-upper;
+                }
+    
+                .buy-button{
+                    margin-top: $space-upper;
+                    background-color: $accent-color;
+                    color:white;
+                    width:240px;
+                    height: 40px;
+                    border-radius: $corner-radius;      
+                    border-style: none;  
+                }
+
+            }
+        }
+        
+
+    }
+
+    .descriptionSection{
+        padding-left: $space-upper;
+        width:680px;
+        .title{
+            font-size: $font-size-big;
+        }
+
+        .description{
+            margin-top: $space-upper;
+        }
+    }
+}
+
+}

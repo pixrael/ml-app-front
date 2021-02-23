@@ -24,12 +24,13 @@ function App() {
         <Searchbox onReceivedResults={onReceivedResults} />
         <Breadcrum />
         <Switch>
-          <Route path="/items" >
-            <ProductListWrapper onSelectedProduct={onSelectedProduct} />
-          </Route>
           <Route path="/items/:id" exact >
             <ProductDetailsWrapper />
           </Route>
+          <Route path="/items" >
+            <ProductListWrapper onSelectedProduct={onSelectedProduct} />
+          </Route>
+
         </Switch>
       </div>
     </Router>
