@@ -2,20 +2,15 @@ import './Searchbox.scss';
 import logo from '../../assets/logo.png';
 import { BsSearch } from 'react-icons/bs';
 import { useState } from 'react';
-import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 function Searchbox(props) {
-
     const [keyword, setKeyword] = useState('');
+    const history = useHistory();
 
-    async function handleSubmit(event) {
+    function handleSubmit(event) {
         event.preventDefault();
-        console.log('keyboard ', keyword);
-
-        const resp = await axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=:${keyword}`);
-
-        props.onReceivedResults(resp.data.results);
-        
+        props.onReceivedResults(keyword, history);
     }
 
     return (

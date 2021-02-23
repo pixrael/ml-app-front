@@ -2,7 +2,7 @@ import ProductItem from '../product-item/product-item';
 import './product-list.scss';
 
 function ProductList(props) {
-
+    
     const products = props.searchResults;
 
     const ret = products.map((product, index) => {
