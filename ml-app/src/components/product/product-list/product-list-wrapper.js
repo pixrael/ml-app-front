@@ -1,13 +1,20 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import axios from 'axios';
 
 import ProductList from './product-list';
 
-function ProductListWrapper() {
+function ProductListWrapper(props) {
     const { search } = useLocation();
     const keyword = new URLSearchParams(search).get('search');
+
+    const history = useHistory();
+
+    const onSelectedProduct = (id) => {
+        props.onSelectedProduct(id, history);
+    }
+
 
     const [products, setProducts] = useState([]);
 
@@ -17,7 +24,7 @@ function ProductListWrapper() {
         });
     }, [keyword]);
 
-    return (<ProductList searchResults={products} />);
+    return (<ProductList searchResults={products} onSelectedProduct={onSelectedProduct} />);
 }
 
 async function getProductList(url, keyword, callback) {

@@ -15,7 +15,7 @@ function ProductItem(props) {
         <div className="row">
             <div className="product-container">
                 <div className="row-product">
-                    <img className="img-product" src={props.imgUrl} />
+                    <img className="img-product" src={props.imgUrl} onClick={() => props.handleSelection(props.id)} />
                     <div className="product-info">
                         <div className="left-price-title" >
                             <div className="price-container">
@@ -24,9 +24,9 @@ function ProductItem(props) {
                                 </div>
                                 {
                                     shippingTag
-                                }                                
+                                }
                             </div>
-                            <div className="title" >
+                            <div className="title" onClick={() => props.handleSelection(props.id)}  >
                                 {props.title}
                             </div>
                             <div className="status" >

@@ -1,21 +1,21 @@
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import './mixings.scss';
 import './App.scss';
+
 import Searchbox from './components/searchBox/Searchbox';
 import Breadcrum from './components/breadcrum/Breadcrum';
-import ProductDetails from './components/product/product-details/product-details';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ProductListWrapper from './components/product/product-list/product-list-wrapper';
+import ProductDetailsWrapper from './components/product/product-details/product-details-wrapper';
 
 function App() {
-
-
 
   function onReceivedResults(keyword, history) {
     history.push(`/items?search=${keyword}`);
   }
 
-  function onSelectedProduct(res, keyword, history) {
-    // TODO
+  function onSelectedProduct(id, history) {
+    history.push(`/items/${id}`);
   }
 
   return (
@@ -25,10 +25,10 @@ function App() {
         <Breadcrum />
         <Switch>
           <Route path="/items" >
-            <ProductListWrapper />
+            <ProductListWrapper onSelectedProduct={onSelectedProduct} />
           </Route>
           <Route path="/items/:id" exact >
-            <ProductDetails />
+            <ProductDetailsWrapper />
           </Route>
         </Switch>
       </div>

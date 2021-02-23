@@ -18,7 +18,11 @@
     .img-product{
         width: 180px;
         height: 180px;
-        border-radius: $corner-radius;
+        border-radius: $corner-radius;        
+    }
+
+    .img-product:hover {
+        cursor: pointer;
     }
 
     .product-info{
@@ -45,7 +49,10 @@
             .title{
                 padding-top: $space-upper;
                 font-size: $font-size-mid;
+            }
 
+            .title:hover {
+                cursor: pointer;
             }
 
             
