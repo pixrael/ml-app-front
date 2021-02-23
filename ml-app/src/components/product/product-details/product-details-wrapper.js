@@ -11,30 +11,33 @@ function ProductDetailsWrapper() {
         condition: '',
         soldQuantity: 0,
         title: '',
-        price: 0
+        price: 0,
+        description: ''
     });
 
     useEffect(() => {
-        getProductDetails('https://api.mercadolibre.com/items/', id, (resp) => {
-            const imgUrl = resp.data.pictures[0].url;
-            const condition = resp.data.condition === 'new' ? 'nuevo' : 'usado';
-            const soldQuantity = resp.data.sold_quantity;
-            const title = resp.data.title;
-            const price = resp.data.price;
-            setDetails({ imgUrl, condition, soldQuantity, title, price });
+        getProductDetails('https://api.mercadolibre.com/items/', id, (details, description) => {
+            const imgUrl = details.data.pictures[0].url;
+            const condition = details.data.condition === 'new' ? 'nuevo' : 'usado';
+            const soldQuantity = details.data.sold_quantity;
+            const title = details.data.title;
+            const price = details.data.price;
 
+            setDetails({ imgUrl, condition, soldQuantity, title, price, description });
         });
 
     }, [id]);
 
-    return (<ProductDetails imgUrl={details.imgUrl} condition={details.condition} soldQuantity={details.soldQuantity} title={details.title} price={details.price} />);
+    return (<ProductDetails imgUrl={details.imgUrl} condition={details.condition} soldQuantity={details.soldQuantity} title={details.title} price={details.price} description={details.description} />);
 }
 
 async function getProductDetails(url, id, callback) {
+    const details = await axios.get(`${url}${id}`);
+    const description = await axios.get(`${url}${id}/description`);
 
-    const resp = await axios.get(`${url}${id}`);
-
-    callback(resp);
+    callback(details, description.data.plain_text);
 }
+
+
 
 export default ProductDetailsWrapper;
