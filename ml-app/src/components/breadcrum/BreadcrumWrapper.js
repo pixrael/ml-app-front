@@ -16,7 +16,6 @@ function BreadCrumWrapper(props) {
             getCategoryData('https://api.mercadolibre.com/categories/', categoryId, (categoryData) => {
 
                 const path = categoryData.data.path_from_root;
-
                 setCategoryPath(path);
             });
 
