@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import ProductDetails from './product-details';
 
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
-function ProductDetailsWrapper() {
+import ProductDetails from './product-details';
+
+
+function ProductDetailsWrapper(props) {
     const { id } = useParams();
     const [details, setDetails] = useState({
         imgUrl: '',
@@ -17,6 +19,9 @@ function ProductDetailsWrapper() {
 
     useEffect(() => {
         getProductDetails('https://api.mercadolibre.com/items/', id, (details, description) => {
+            const categoryId = details.data.category_id;
+            props.onChangeCategoryId(categoryId);
+
             const imgUrl = details.data.pictures[0].url;
             const condition = details.data.condition === 'new' ? 'nuevo' : 'usado';
             const soldQuantity = details.data.sold_quantity;

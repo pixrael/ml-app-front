@@ -41,7 +41,7 @@ function App() {
         <Switch>
           <Route path="/items/:id" exact >
             <BreadCrumWrapper categoryId={categoryId} />
-            <ProductDetailsWrapper />
+            <ProductDetailsWrapper onChangeCategoryId={onChangeCategoryId} />
           </Route>
           <Route path="/items" >
             <BreadCrumWrapper categoryId={categoryId} />
