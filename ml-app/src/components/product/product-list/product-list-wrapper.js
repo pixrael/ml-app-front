@@ -20,7 +20,12 @@ function ProductListWrapper(props) {
 
     useEffect(() => {
         getProductList('https://api.mercadolibre.com/sites/MLA/search?q=:', keyword, (resp) => {
-            setProducts(resp.data.results);
+            setProducts(resp.data.results.splice(0,4));
+
+            // props.onChangeCategoryId(resp.most_repeated_category); TODO
+            props.onChangeCategoryId('MLA3697');
+
+
         });
     }, [keyword]);
 
@@ -30,7 +35,6 @@ function ProductListWrapper(props) {
 async function getProductList(url, keyword, callback) {
 
     const resp = await axios.get(`${url}${keyword}`);
-
     callback(resp);
 }
 
