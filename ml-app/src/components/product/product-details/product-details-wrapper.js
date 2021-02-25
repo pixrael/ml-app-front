@@ -18,15 +18,16 @@ function ProductDetailsWrapper(props) {
     });
 
     useEffect(() => {
-        getProductDetails('https://api.mercadolibre.com/items/', id, (details, description) => {
-            const categoryId = details.data.category_id;
-            props.onChangeCategoryId(categoryId);
+        getProductDetails('http://localhost:5000/api/items/', id, (details) => {
+
+            props.onChangeCategoryPath(details.data.category_data.data.path_from_root);
 
             const imgUrl = details.data.pictures[0].url;
             const condition = details.data.condition === 'new' ? 'nuevo' : 'usado';
             const soldQuantity = details.data.sold_quantity;
             const title = details.data.title;
             const price = details.data.price;
+            const description = details.data.description_data.plain_text;
 
             setDetails({ imgUrl, condition, soldQuantity, title, price, description });
         });
@@ -38,9 +39,8 @@ function ProductDetailsWrapper(props) {
 
 async function getProductDetails(url, id, callback) {
     const details = await axios.get(`${url}${id}`);
-    const description = await axios.get(`${url}${id}/description`);
 
-    callback(details, description.data.plain_text);
+    callback(details);
 }
 
 
