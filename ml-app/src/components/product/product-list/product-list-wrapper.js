@@ -19,12 +19,9 @@ function ProductListWrapper(props) {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        getProductList('https://api.mercadolibre.com/sites/MLA/search?q=:', keyword, (resp) => {
-            setProducts(resp.data.results.splice(0,4));
-
-            // props.onChangeCategoryId(resp.most_repeated_category); TODO
-            props.onChangeCategoryId('MLA3697');
-
+        getProductList('http://localhost:5000/api/items/search?q=', keyword, (resp) => {
+            setProducts(resp.data.results.splice(0, 4));
+            props.onChangeCategoryPath(resp.data.most_repeated_category_data.path_from_root);
 
         });
     }, [keyword]);

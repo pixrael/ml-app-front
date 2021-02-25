@@ -28,10 +28,10 @@ function App() {
     history.push(`/items/${id}`);
   }
 
-  const [categoryId, setCategoryId] = useState('');
+  const [categoryPath, setCategoryPath] = useState([]);
 
-  function onChangeCategoryId(categoryId) {
-    setCategoryId(categoryId);
+  function onChangeCategoryPath(categoryPath) {
+    setCategoryPath(categoryPath);
   }
 
   return (
@@ -40,12 +40,12 @@ function App() {
         <Searchbox onReceivedResults={onReceivedResults} />
         <Switch>
           <Route path="/items/:id" exact >
-            <BreadCrumWrapper categoryId={categoryId} />
-            <ProductDetailsWrapper onChangeCategoryId={onChangeCategoryId} />
+            <BreadCrumWrapper categoryPath={categoryPath} />
+            <ProductDetailsWrapper onChangeCategoryPath={onChangeCategoryPath} />
           </Route>
           <Route path="/items" >
-            <BreadCrumWrapper categoryId={categoryId} />
-            <ProductListWrapper onSelectedProduct={onSelectedProduct} onChangeCategoryId={onChangeCategoryId} />
+            <BreadCrumWrapper categoryPath={categoryPath} />
+            <ProductListWrapper onSelectedProduct={onSelectedProduct} onChangeCategoryPath={onChangeCategoryPath} />
           </Route>
         </Switch>
       </div>
