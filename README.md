@@ -1,11 +1,11 @@
 # ml-app-front
 
 
-Introduction 
+
 This project is a frontend part that allows the users to search "Mercado Libre" products, see a result list of searched product and the details of a selected product.
 
-Technologies
-Used React version 17.x.x
+Technologies:
+React version 17.x.x
 
 *Running the project locally
 1-Clone or download the current repository.
