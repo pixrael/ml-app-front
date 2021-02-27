@@ -20,7 +20,7 @@ function ProductListWrapper(props) {
 
     useEffect(() => {
 
-        const baseUrl = process.env.REACT_APP_BASE_URL;
+        const baseUrl = process.env.REACT_APP_API_BASE_URL;
         getProductList( `${baseUrl}/api/items/search?q=`, keyword, (resp) => {
             setProducts(resp.data.results.splice(0, 4));
             props.onChangeCategoryPath(resp.data.most_repeated_category_data.path_from_root);

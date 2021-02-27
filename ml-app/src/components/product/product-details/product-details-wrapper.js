@@ -18,7 +18,7 @@ function ProductDetailsWrapper(props) {
     });
 
     useEffect(() => {
-        const baseUrl = process.env.REACT_APP_BASE_URL;
+        const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
         getProductDetails(`${baseUrl}/api/items/`, id, (details) => {
 
