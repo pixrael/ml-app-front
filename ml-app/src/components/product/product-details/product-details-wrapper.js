@@ -18,7 +18,9 @@ function ProductDetailsWrapper(props) {
     });
 
     useEffect(() => {
-        getProductDetails('http://localhost:5000/api/items/', id, (details) => {
+        const baseUrl = process.env.REACT_APP_BASE_URL;
+
+        getProductDetails(`${baseUrl}/api/items/`, id, (details) => {
 
             props.onChangeCategoryPath(details.data.category_data.data.path_from_root);
 
