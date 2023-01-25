@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# UI client of an ecommerce app 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created in react
 
 ## Available Scripts
 
